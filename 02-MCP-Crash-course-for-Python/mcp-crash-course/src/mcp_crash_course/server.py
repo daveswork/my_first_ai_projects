@@ -27,12 +27,12 @@ def add(a: int, b:int) -> int:
 # - Change transport to StreamableHttp
 
 if __name__ == "__main__":
-    transport = "sse"
+    transport = "http"
     if transport == "stdio":
         print("Running the server with stdio transport.")
         mcp.run(transport="stdio")
-    elif transport == "sse":
+    elif transport == "http":
         print("Running server with SSE transport.")
-        mcp.run(transport="sse")
+        mcp.run(transport="http")
     else:
         raise ValueError(f"Unknown transport: {transport}")
