@@ -7,7 +7,8 @@ from dotenv import load_dotenv
 mcp = FastMCP(
     name="Calculator",
     host="0.0.0.0",
-    port=8050
+    port=8050,
+    stateless_http=False
 )
 
 
@@ -33,6 +34,6 @@ if __name__ == "__main__":
         mcp.run(transport="stdio")
     elif transport == "http":
         print("Running server with SSE transport.")
-        mcp.run(transport="http")
+        mcp.run(transport="streamable-http")
     else:
         raise ValueError(f"Unknown transport: {transport}")
